@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('https');
 
 function getAndPrintHTMLChunks () {
   var requestOptions = {
@@ -12,11 +12,11 @@ function getAndPrintHTMLChunks () {
 
   http.get(requestOptions, function(res) {
       // set encoding of received data to UTF-8
-    //res.setEncoding('utf8');
+    res.setEncoding('utf8');
 
     // the callback is invoked when a `data` chunk is received
     res.on('data', function (data) {
-      console.log('Chunk Received. Length:', data.length);
+      // console.log('Chunk Received. Length:', data.length);
       console.log(data +  '\n')
     });
 
